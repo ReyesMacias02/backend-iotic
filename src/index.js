@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mqttRouter = require('./routes/mqtt');
+const mqttRouter = require('../routes/mqtt');
 const { Client } = require('pg');
 const cors = require('cors');
 const app = express();
