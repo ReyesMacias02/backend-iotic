@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mqttRouter = require('../routes/mqtt');
+const mqttRouter = require('../backend/routes/mqtt');
 const { Client } = require('pg');
 const cors = require('cors');
 const app = express();
@@ -155,6 +155,7 @@ app.put('/led', (req, res) => {
 });
 
 // Inicia el servidor en el puerto 3000
-http.listen(4000, () => {
-  console.log('Servidor iniciado en http://localhost:3000');
+const port = process.env.PORT || 9001;
+http.listen(port, () => {
+  console.log(`Listening to port ${port}`);
 });
