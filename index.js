@@ -11,11 +11,17 @@ const { resolve } = require('dns');
 // Crear el servidor de Socket.IO
 const io = socketIO(http, {
   cors: {
-    origin: "*",
+    origin: "",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
+});
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8100');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 app.use(bodyParser.json());
 app.use(cors()); // Habilita el CORS en todas las rutas
