@@ -11,7 +11,7 @@ const { resolve } = require('dns');
 // Crear el servidor de Socket.IO
 const io = socketIO(http, {
   cors: {
-    origin: "http://localhost:8100",
+    origin: "https://backend-iotic.vercel.app",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
