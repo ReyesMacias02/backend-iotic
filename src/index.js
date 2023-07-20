@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 const http = require('http').createServer(app); // Importa http
 const socketIO = require('socket.io');
+const { resolve } = require('dns');
 
 // Crear el servidor de Socket.IO
 const io = socketIO(http, {
@@ -135,7 +136,9 @@ console.log(contraseña);
       res.status(500).json({ error: 'Error al consultar la base de datos' });
     });
 });
-
+app.get('/api',(req,res)=>{
+  res.send("API funcionando")
+})
 // Ruta para apagar el LED
 app.put('/led', (req, res) => {
   const { state } = req.body;
@@ -152,6 +155,6 @@ app.put('/led', (req, res) => {
 });
 
 // Inicia el servidor en el puerto 3000
-http.listen(3000, () => {
+http.listen(4000, () => {
   console.log('Servidor iniciado en http://localhost:3000');
 });
