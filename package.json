@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nodemon index.js",
+    "build": "node -v && npm -v && npm clean-install && next build",
     "start": "node index.js"
   },
   "keywords": [],
