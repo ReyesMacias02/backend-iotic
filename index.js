@@ -146,7 +146,7 @@ app.get('/api',(req,res)=>{
   res.send("API funcionando")
 })
 app.get('/',(req,res)=>{
-  console.log(`Listening to port ${ process.env.PORT}`);
+  console.log(`Listening to port`);
 })
 // Ruta para apagar el LED
 app.put('/led', (req, res) => {
