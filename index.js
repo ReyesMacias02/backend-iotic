@@ -139,6 +139,9 @@ console.log(contraseña);
 app.get('/api',(req,res)=>{
   res.send("API funcionando")
 })
+app.get('/',(req,res)=>{
+  res.send("API funcionando")
+})
 // Ruta para apagar el LED
 app.put('/led', (req, res) => {
   const { state } = req.body;
