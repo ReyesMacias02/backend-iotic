@@ -11,18 +11,13 @@ const { resolve } = require('dns');
 // Crear el servidor de Socket.IO
 const io = socketIO(http, {
   cors: {
-    origin: "",
+    origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
 });
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8100');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+
 app.use(bodyParser.json());
 app.use(cors()); // Habilita el CORS en todas las rutas
 // Configuración de la conexión a la base de datos PostgreSQL
@@ -146,7 +141,7 @@ app.get('/api',(req,res)=>{
   res.send("API funcionando")
 })
 app.get('/',(req,res)=>{
-  console.log(`Listening to port`);
+  res.send(  console.log(`Listening to port ${ process.env.PORT}`))
 })
 // Ruta para apagar el LED
 app.put('/led', (req, res) => {
